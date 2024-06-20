@@ -1,13 +1,21 @@
 import { Joke } from "./components/Joke";
+import {jokesData} from "./jokesData"
 
 function App() {
+
+    const jokes = jokesData.map(jokeData => {
+        return (
+            <Joke
+            key={jokeData.setup}
+            setup={jokeData.setup}
+            punchline={jokeData.punchline}
+            />
+        )
+    })
     return (
         <div>
             <h1>JOKES</h1>
-            <Joke
-    setup="A man walks into a library and asks the librarian for books about paranoia."
-    punchline="The librarian whispers, 'They're right behind you!'"
-  />
+            {jokes}
         </div>
     );
 }
